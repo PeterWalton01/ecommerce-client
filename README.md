@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+# Codecademy Portfolio Project - E-Commerce App (Client)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description:
 
-## Available Scripts
+This project was complete as part of the Codecademy Full-Stack Engineer course. Specifically the project covers the _E-Commerce App (Client)_ portfolio project. This is the client that accompanies the server application _E-Commerce App (REST API)_. (This is also a repository on the GitHub site).
 
-In the project directory, you can run:
+The purpose of this project is to provide a client application that exercises the REST API in the partnering project described above. The application provides:
 
-### `npm start`
+> - The ability to register users for local logins.
+> - The ability to logon and logoff using these local accounts.
+> - Logon capability using logon via Google.
+> - The access to all features (other than registration) should require the customer to be logged in.
+> - The ability to view products via. a list, and to add these to a shopping cart.
+> - For long product lists, the ability to reduce the list via. a search dialogue.
+> - A mechanism is provided to remove products from orders (by reducing the quantity to zero).
+> - Purchase carts can be turned into orders by selecting a place order option.
+> - Before orders can be confirmed, they are checked against a pre-pay limit. If there are sufficient funds the order can be confirmed or cancelled. If there is not sufficient funds, the order cannot be confirmed.
+> - Since this is a portfolio application, the pre-pay balance can be reset to £3000 by logging off and on with a local account.
+> - Confirmed orders are stored in PostGres database in the accompanying REST server.
+> - Order that are confirmed are stored against the email of the logged in account.
+> - Customers can view a history of their orders.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Some implementation details
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The application uses the following technologies:
 
-### `npm test`
+> Nodejs
+> React
+> Redux tool-kit
+> Passport
+> Local passport
+> Google passport
+> Bcrypt
+> NPM CORS
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How to use
 
-### `npm run build`
+This is the client that accompanies the server application _E-Commerce App (REST API)_. (This is also a repository on the GitHub sit). This application will be unresponsive without an instance of this REST API server. Details of how to configure this application to work with an instance of the API server are given below.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Building the application
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To begin, this application must be cloned locally from the GitHub. In the project directory the following commands should then be run to build a development version of the application -
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+> npm install
+> npm run start
 
-### `npm run eject`
+A production build can be produced by running
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+> npm run build
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Running with a corresponding REST API server
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+To configure the application to run with a REST API server, complete the following steps:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+In the root of the project, create a .env file with the following entries -
 
-## Learn More
+> URL_BASE={required root URL}
+> REQ_PORT={required port}
+>
+> CURRENCY=(required currency symbol - probably "£")
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+In the file src/api/index.js add the following lines -
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+> export const API_ENDPOINT = {required root URL};
+>
+> export const CURRENCY = (required currency symbol - probably "£");
 
-### Code Splitting
+Examples:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+.env
 
-### Analyzing the Bundle Size
+> URL_BASE="http://localhost"
+> REQ_PORT=4000
+>
+> CURRENCY="£"
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+index.js
 
-### Making a Progressive Web App
+> export const API_ENDPOINT = "http://localhost:4000";
+>
+> export const CURRENCY = "£";
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Collaborators
 
-### Advanced Configuration
+None.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## License
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The code in this project can be freely copied and distributed provided the copies bear an appropriate acknowledgement.
