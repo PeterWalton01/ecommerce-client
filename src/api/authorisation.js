@@ -33,18 +33,13 @@ export const addRegistration = async (user) => {
  * @return {object|null}  [JSON object containing response]
  */
 export const googleLogon = async () => {
-  console.log("Start");
-  console.log(`${API_ENDPOINT}/auth/login/federated/google`);
   const response = await fetch(`${API_ENDPOINT}/auth/login/federated/google`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
   });
-  console.log(response);
   const jsonResponse = await response.json();
-  console.log("JSON");
-  console.log(jsonResponse);
   return jsonResponse;
 };
 /*
