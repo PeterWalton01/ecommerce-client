@@ -28,6 +28,7 @@ const Logon = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // attempt local logon
+    dispatch(setMessage("Logging on..."));
     const resp = await localLogon(data);
     dispatch(setMessage(resp));
     if (resp.success) {

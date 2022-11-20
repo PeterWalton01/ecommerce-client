@@ -1,4 +1,4 @@
-import { API_ENDPOINT } from ".";
+import { API_ENDPOINT } from "./index";
 /*
  * uses a POST request to create an order header
  * @author Peter Walton

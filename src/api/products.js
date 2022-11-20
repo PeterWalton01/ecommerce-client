@@ -1,4 +1,4 @@
-import { API_ENDPOINT } from ".";
+import { API_ENDPOINT } from "./index";
 /*
  * uses a GET request to query products
  * @author Peter Walton

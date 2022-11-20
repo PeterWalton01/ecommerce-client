@@ -41,6 +41,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validate(state)) {
+      dispatch(setMessage({ message: "Registration processing.." }));
       const resp = await addRegistration(state);
       dispatch(setMessage(resp));
       if (resp.success) {

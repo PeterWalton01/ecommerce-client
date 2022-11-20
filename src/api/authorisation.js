@@ -1,4 +1,4 @@
-import { API_ENDPOINT } from ".";
+import { API_ENDPOINT } from "./index";
 /*
  * uses a POST request to register a new local
  * use account
@@ -50,6 +50,7 @@ export const googleLogon = async () => {
  *                         for detail]
  * @return {object|null}  [JSON object containing response]
  */
+
 export const localLogon = async (data) => {
   const response = await fetch(`${API_ENDPOINT}/auth/login`, {
     method: "POST",
